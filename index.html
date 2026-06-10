@@ -60,7 +60,7 @@ html,body{height:100%;overflow:hidden;background:#0a2030;font-family:var(--font)
 #lives{font-size:26px;letter-spacing:2px;filter:drop-shadow(0 4px 0 rgba(10,40,60,.18));}
 
 /* Zeitleiste */
-#timebar-wrap{position:absolute;left:16px;right:16px;top:78px;height:12px;
+#timebar-wrap{position:absolute;left:16px;right:16px;top:calc(max(14px,env(safe-area-inset-top)) + 66px);height:12px;
   background:rgba(255,255,255,.55);border-radius:10px;overflow:hidden;
   box-shadow:inset 0 2px 4px rgba(10,40,60,.15);}
 #timebar{height:100%;width:100%;border-radius:10px;
@@ -100,9 +100,13 @@ html,body{height:100%;overflow:hidden;background:#0a2030;font-family:var(--font)
   align-items:center;justify-content:center;gap:18px;padding:24px;
   text-align:center;color:var(--ink);}
 .hidden{display:none!important;}
+/* Startbildschirm: oben beginnen + scrollbar, damit das Logo nicht hinter den
+   oberen Knöpfen verschwindet (viel Inhalt: Logo, Ziele, Album, Buttons …) */
+#start{justify-content:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  padding:104px 20px 28px;gap:14px;}
 
 /* Logo */
-.logo{font-size:clamp(44px,15vw,92px);font-weight:900;line-height:.9;
+.logo{font-size:clamp(40px,12vw,76px);font-weight:900;line-height:.9;
   letter-spacing:1px;color:#fff;
   text-shadow:
     0 3px 0 #1f8fd6, 0 6px 0 #1f8fd6, 0 9px 0 #1872ad,
